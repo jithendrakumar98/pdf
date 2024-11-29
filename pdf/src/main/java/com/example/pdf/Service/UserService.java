@@ -9,15 +9,14 @@ import org.springframework.stereotype.Service;
 
 import com.example.pdf.Model.UserModel;
 import com.example.pdf.Reposi.UserJpaRepo;
-import com.example.pdf.Reposi.Userinterface;
+
 
 @Service
-public class UserService implements Userinterface {
+public class UserService  {
     
     @Autowired
     UserJpaRepo UJR;
 
-    @Override
     public List<UserModel> getAllUsers() {
         List<UserModel> users = UJR.findAll();
         List<UserModel> sanitizedUsers = new ArrayList<>();
@@ -30,7 +29,8 @@ public class UserService implements Userinterface {
     }
     
 
-    @Override
+
+    
     public UserModel saveUser(UserModel newUser) {
         System.out.println(newUser.getUserID());
         String hashedPassword = simpleHash(newUser.getPassword());
@@ -38,7 +38,7 @@ public class UserService implements Userinterface {
         return UJR.save(newUser);
     }
 
-    @Override
+
     public boolean login(long id, String password) {
         UserModel user = UJR.findByUserID(id);
         if (user != null) {

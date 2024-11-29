@@ -72,13 +72,11 @@ public class UserController {
             }
         }
 
-        // Save user data, including the image
         UserModel newUser = new UserModel(userID, name, email, year, mobileNo, password, imageBytes);
         UserModel user = userService.saveUser(newUser);
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
-    // Handle multiple users with optional images for each
     @PostMapping("/users/postMultiple")
     public ResponseEntity<List<UserModel>> addUsers(
             @RequestParam("userIDs") List<Long> userIDs,
