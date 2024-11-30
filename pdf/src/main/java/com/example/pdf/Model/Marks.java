@@ -27,8 +27,6 @@ public class Marks {
         this.Sem = Sem;
     }
     
-
-
     public long getId() {
         return id;
     }

@@ -32,6 +32,7 @@ public class UserModel {
     private byte[] image;
 
     public UserModel() {
+        
     }
 
     public UserModel(long userID, String name, String email, int year, String mobileNo, String password, byte[] image) {
